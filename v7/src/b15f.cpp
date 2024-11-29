@@ -20,7 +20,7 @@ unsigned char crc8(const std::vector<unsigned char>& data) {
 }
 
 void buildPackage() {
-    const char* dateipfad = "100krandom.bin";
+    const char* dateipfad = "../testfiles/100krandom.bin";
     std::ifstream datei(dateipfad, std::ios::binary);
     if (!datei) {
         std::cerr << "Fehler: Datei konnte nicht geöffnet werden!" << std::endl;
