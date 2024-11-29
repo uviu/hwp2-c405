@@ -23,7 +23,7 @@ void buildPackage() {
     const char* dateipfad = "100krandom.bin";
     std::ifstream datei(dateipfad, std::ios::binary);
     if (!datei) {
-        std::cerr << "Fehler: Datei konnte nicht geöffnet werden!" << std::endl;
+        std::cerr << "Fehler: Datei konnte nicht geÃ¶ffnet werden!" << std::endl;
         return;
     }
 
@@ -59,7 +59,7 @@ void buildPackage() {
         }
     }
 
-    std::cout << "Die ersten 100 Bytes des neuen Puffers (in Binär):" << std::endl;
+    std::cout << "Die ersten 100 Bytes des neuen Puffers (in BinÃ¤r):" << std::endl;
     for (size_t i = 0; i < std::min<size_t>(100, puffer.size()); ++i) {
         std::bitset<8> bin(puffer[i]);
         std::cout << bin << " ";
