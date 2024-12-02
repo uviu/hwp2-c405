@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <cmath> 
 
 unsigned char crc8(const std::vector<unsigned char> &data) {
   unsigned char crc = 0xFF;
@@ -19,8 +20,15 @@ unsigned char crc8(const std::vector<unsigned char> &data) {
   return crc;
 }
 
+int getUpcomingBlockLength(int dateigroesse){
+  if (dateigroesse >= 64){
+    return 64;
+  }
+  return dateigroesse;
+}
+
 void buildPackage() {
-  const char *dateipfad = "../testfiles/100krandom.bin";
+  const char *dateipfad = "../testfiles/100random.bin";
   std::ifstream datei(dateipfad, std::ios::binary);
   if (!datei) {
     std::cerr << "Fehler: Datei konnte nicht geöffnet werden!" << std::endl;
@@ -31,16 +39,24 @@ void buildPackage() {
   std::streamsize dateigroesse = datei.tellg();
   datei.seekg(0, std::ios::beg);
 
+  // databits + anzahlblöcke * 16 (groesse eines Blocks)
+  int encodedDataLength = dateigroesse + std::floor((dateigroesse / 64)) * 16;
+
+  //falls rest + 16 (ein length header + crc)
+  if (dateigroesse % 64 != 0){
+    dateigroesse += 16;
+  }
+
   if (dateigroesse == 0) {
     std::cerr << "Fehler: Datei ist leer!" << std::endl;
     datei.close();
     return;
   }
 
+  size_t bitsLeft = dateigroesse;
   std::vector<unsigned char> puffer;
-  std::bitset<4> start(0xF);
-  unsigned char startByte = static_cast<unsigned char>(start.to_ulong());
-  puffer.push_back(startByte);
+  unsigned char lengthHeader(getUpcomingBlockLength(dateigroesse));
+  puffer.push_back(lengthHeader);
 
   unsigned char byte;
   size_t bytesRead = 0;
@@ -55,7 +71,9 @@ void buildPackage() {
     if (bytesRead % 8 == 0) {
       puffer.push_back(crc8(block));
       block.clear();
-      puffer.push_back(startByte);
+      puffer.push_back(lengthHeader);
+      dateigroesse -= getUpcomingBlockLength(dateigroesse);
+      lengthHeader = (getUpcomingBlockLength(dateigroesse));
     }
   }
 
