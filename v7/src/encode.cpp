@@ -21,8 +21,8 @@ unsigned char crc8(const std::vector<unsigned char> &data) {
 }
 
 int getUpcomingBlockLength(int dateigroesse){
-  if (dateigroesse >= 64){
-    return 64;
+  if (dateigroesse >= 8){
+    return 8;
   }
   return dateigroesse;
 }
@@ -40,11 +40,11 @@ void buildPackage() {
   datei.seekg(0, std::ios::beg);
 
   // databits + anzahlblöcke * 16 (groesse eines Blocks)
-  int encodedDataLength = dateigroesse + std::floor((dateigroesse / 64)) * 16;
+  std::streamsize encodedDataLength = dateigroesse + std::floor((dateigroesse / 8)) * 2;
 
   //falls rest + 16 (ein length header + crc)
-  if (dateigroesse % 64 != 0){
-    dateigroesse += 16;
+  if (dateigroesse % 8 != 0){
+    encodedDataLength += 2;
   }
 
   if (dateigroesse == 0) {
@@ -71,9 +71,9 @@ void buildPackage() {
     if (bytesRead % 8 == 0) {
       puffer.push_back(crc8(block));
       block.clear();
-      puffer.push_back(lengthHeader);
       dateigroesse -= getUpcomingBlockLength(dateigroesse);
       lengthHeader = (getUpcomingBlockLength(dateigroesse));
+      puffer.push_back(lengthHeader);
     }
   }
 
