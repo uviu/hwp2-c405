@@ -16,7 +16,7 @@ except serial.SerialException as e:
 # Daten empfangen und in die Datei
 previousClockState = "0"
 try:
-    with open(output_file, "a") as file:  # Öffnen im Anhängemodus
+    with open(output_file, "w") as file:  # Öffnen im Anhängemodus
         print(f"Schreibe Daten in {output_file}...")
         while True:
             if ser.in_waiting > 0:  # Prüfen, ob Daten verfügbar sind
