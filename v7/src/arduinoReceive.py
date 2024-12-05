@@ -3,7 +3,7 @@ import serial
 # Konfiguration
 arduino_port = "/dev/ttyUSB1"  # Ändere dies je nach deinem Betriebssystem und Port
 baud_rate = 9600
-output_file = "arduino_pins.txt"  # Die Datei, in der die Zustände gespeichert werden
+output_file = "../arduinoLogs/arduinoIn.txt"  # Die Datei, in der die Zustände gespeichert werden
 
 # Serielle Verbindung herstellen
 try:
