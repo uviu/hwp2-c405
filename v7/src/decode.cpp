@@ -28,13 +28,14 @@ int getUpcomingBlockLength(int dateigroesse){
 }
 
 void buildPackage() {
-  const char *dateipfad = "../testfiles/100random.bin";
+  const char *dateipfad = "../encodedTestfiles/encoded.bin";
   std::ifstream datei(dateipfad, std::ios::binary);
   if (!datei) {
     std::cerr << "Fehler: Datei konnte nicht geöffnet werden!" << std::endl;
     return;
   }
 
+/*
   datei.seekg(0, std::ios::end);
   std::streamsize dateigroesse = datei.tellg();
   datei.seekg(0, std::ios::beg);
@@ -52,32 +53,43 @@ void buildPackage() {
     datei.close();
     return;
   }
-
-  size_t bytesLeft = dateigroesse;
+*/
+  //size_t bytesLeft = dateigroesse;
   std::vector<unsigned char> puffer;
-  unsigned char lengthHeader(getUpcomingBlockLength(dateigroesse));
-  puffer.push_back(lengthHeader);
 
   unsigned char byte;
-  size_t bytesRead = 0;
-
+  int lengthHeader;
+  int blockIndex = 0;
   std::vector<unsigned char> block;
+  bool isHeader = true;
 
   while (datei.read(reinterpret_cast<char *>(&byte), 1)) {
-    puffer.push_back(byte);
-    block.push_back(byte);
-    bytesRead++;
-
-    if (bytesRead % 8 == 0) {
+    if (isHeader){
+      lengthHeader = static_cast<int>(byte); //maybe in int umwandeln
+      std::cout << "Header ist: " << lengthHeader << std::endl;
+      blockIndex = 0;
+      isHeader = false;
+    } else {
+      if (blockIndex < lengthHeader){
+        std::cout << "Block ist: " << blockIndex << std::endl;
+        puffer.push_back(byte);
+        blockIndex++;
+      } else {
+        isHeader = true;
+      }
+    }
+/*
+    if (crc(block)) {
       puffer.push_back(crc8(block));
       block.clear();
       dateigroesse -= getUpcomingBlockLength(dateigroesse);
       lengthHeader = (getUpcomingBlockLength(dateigroesse));
       puffer.push_back(lengthHeader);
     }
+*/
   }
 
-  std::ofstream ausgabeDatei("../encodedTestfiles/encoded.bin",
+  std::ofstream ausgabeDatei("../encodedTestfiles/decoded.bin",
                              std::ios::binary);
   if (!ausgabeDatei) {
     std::cerr << "Fehler: Ausgabedatei konnte nicht geschrieben werden!"
