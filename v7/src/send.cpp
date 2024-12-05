@@ -40,12 +40,9 @@ void outputDataOnClock(const std::string &binaryFile) {
         std::cout << std::bitset<4>(binaryPackage) << std::endl;
   }
 }
-  
-
 
 int main() {
-  const std::string binaryFile =
-      "../encodedTestfiles/encoded.bin"; // Name der Binärdatei
+  const std::string binaryFile = "../encodedTestfiles/encoded.bin"; // Name der Binärdatei
 
   // Starte die Datenverarbeitung
   outputDataOnClock(binaryFile);

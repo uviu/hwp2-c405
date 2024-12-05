@@ -20,13 +20,6 @@ unsigned char crc8(const std::vector<unsigned char> &data) {
   return crc;
 }
 
-int getUpcomingBlockLength(int dateigroesse){
-  if (dateigroesse >= 8){
-    return 8;
-  }
-  return dateigroesse;
-}
-
 void buildPackage() {
   const char *dateipfad = "../encodedTestfiles/encoded.bin";
   std::ifstream datei(dateipfad, std::ios::binary);
@@ -35,27 +28,7 @@ void buildPackage() {
     return;
   }
 
-/*
-  datei.seekg(0, std::ios::end);
-  std::streamsize dateigroesse = datei.tellg();
-  datei.seekg(0, std::ios::beg);
-
-  // databits + anzahlblöcke * 16 (groesse eines Blocks)
-  std::streamsize encodedDataLength = dateigroesse + std::floor((dateigroesse / 8)) * 2;
-
-  //falls rest + 16 (ein length header + crc)
-  if (dateigroesse % 8 != 0){
-    encodedDataLength += 2;
-  }
-
-  if (dateigroesse == 0) {
-    std::cerr << "Fehler: Datei ist leer!" << std::endl;
-    datei.close();
-    return;
-  }
-*/
-  //size_t bytesLeft = dateigroesse;
-  std::vector<unsigned char> puffer;
+std::vector<unsigned char> puffer;
 
   unsigned char byte;
   int lengthHeader;
@@ -66,12 +39,12 @@ void buildPackage() {
   while (datei.read(reinterpret_cast<char *>(&byte), 1)) {
     if (isHeader){
       lengthHeader = static_cast<int>(byte); //maybe in int umwandeln
-      std::cout << "Header ist: " << lengthHeader << std::endl;
+      //std::cout << "Header ist: " << lengthHeader << std::endl;
       blockIndex = 0;
       isHeader = false;
     } else {
       if (blockIndex < lengthHeader){
-        std::cout << "Block ist: " << blockIndex << std::endl;
+        //std::cout << "Block ist: " << blockIndex << std::endl;
         puffer.push_back(byte);
         blockIndex++;
       } else {
@@ -97,8 +70,7 @@ void buildPackage() {
     return;
   }
 
-  ausgabeDatei.write(reinterpret_cast<const char *>(puffer.data()),
-                     puffer.size());
+  ausgabeDatei.write(reinterpret_cast<const char *>(puffer.data()), puffer.size());
 
   ausgabeDatei.close();
   datei.close();
