@@ -18,7 +18,7 @@ void outputDataOnClock(const std::string &binaryFile) {
 
   std::vector<char> buffer(std::istreambuf_iterator<char>(file), {});
   size_t bitIndex = 0;
-  bool clockState = 0;
+  bool clockState = 1;
 
   int binaryPackage = 0;
 
@@ -55,8 +55,5 @@ int main() {
   // Starte die Datenverarbeitung
   outputDataOnClock(binaryFile);
   drv.setRegister(&PORTA, 0b0000);
-  return 0;
-}
-
   return 0;
 }
