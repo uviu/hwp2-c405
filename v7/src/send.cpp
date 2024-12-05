@@ -5,8 +5,10 @@
 #include <iostream>
 #include <thread>
 #include <vector>
+#include <b15f/b15f.h>
 
-// Funktion, um 4 Bits aus einer Binärdatei zu lesen und auszugeben
+B15F& drv = B15F::getInstance();
+
 void outputDataOnClock(const std::string &binaryFile) {
   std::ifstream file(binaryFile, std::ios::binary);
   if (!file) {
@@ -21,7 +23,6 @@ void outputDataOnClock(const std::string &binaryFile) {
   int binaryPackage = 0;
 
   while (bitIndex < buffer.size() * 8) {
-        // Extrahiere 4 Bits aus dem Puffer
         binaryPackage = (binaryPackage << 1 | clockState);
         binaryPackage = (binaryPackage << 1 | 0);
         for (int i = 0; i < 2; ++i) {
@@ -37,15 +38,25 @@ void outputDataOnClock(const std::string &binaryFile) {
         }
         bitIndex += 2;
         clockState = !clockState;
+        drv.setRegister(&PORTA, binaryPackage);
         std::cout << std::bitset<4>(binaryPackage) << std::endl;
+        std::this_thread::sleep_for(std::chrono::milliseconds(5));
+
   }
 }
 
 int main() {
-  const std::string binaryFile = "../encodedTestfiles/encoded.bin"; // Name der Binärdatei
+
+  drv.setRegister(&DDRA, 0b00001111);
+
+  const std::string binaryFile =
+    "../encodedTestfiles/encoded.bin"; // Name der Binärdatei
 
   // Starte die Datenverarbeitung
   outputDataOnClock(binaryFile);
+  drv.setRegister(&PORTA, 0b0000);
+  return 0;
+}
 
   return 0;
 }
