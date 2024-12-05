@@ -3,7 +3,7 @@ import serial
 # Konfiguration
 arduino_port = "/dev/ttyUSB1"  # Ändere dies je nach deinem Betriebssystem und Port
 baud_rate = 9600
-output_file = "../arduinoLogs/arduinoIn.txt"  # Die Datei, in der die Zustände gespeichert werden
+output_file = "../arduinoLogs/arduinoIn.bin"  # Die Datei, in der die Zustände gespeichert werden
 
 # Serielle Verbindung herstellen
 try:
@@ -28,7 +28,7 @@ try:
                     if previousClockState != line[0]:
                         print(previousClockState, int(line[0]), "\n")
                         # Speichern der Pin-Zustände in der Datei
-                        file.write(f"{line}\n")
+                        file.write(f"{line}")
                         print(f"Gespeichert: {line}")  # Ausgabe für Debugging
                         previousClockState = line[0]
 
