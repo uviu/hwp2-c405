@@ -21,7 +21,7 @@ try:
         while True:
             if ser.in_waiting > 0:  # Prüfen, ob Daten verfügbar sind
                 # Daten vom Arduino empfangen (die Zustände der Pins)
-                line = ser.readline().strip().decode('latin-1')
+                line = ser.read(4).strip().decode('latin-1')
 
                 # Überprüfen, ob die eingehenden Daten die erwartete Länge haben (4 Zeichen)
                 if len(line) == 4:  
