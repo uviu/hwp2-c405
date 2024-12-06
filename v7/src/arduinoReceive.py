@@ -3,7 +3,7 @@ import serial
 # Konfiguration
 arduino_port = "/dev/ttyUSB1"  # Ändere dies je nach deinem Betriebssystem und Port
 baud_rate = 9600
-output_file = "../arduinoLogs/arduinoIn.bin"  # Die Datei, in der die Zustände gespeichert werden
+output_file = "../arduinoLogs/arduinoIn.txt"  # Die Datei, in der die Zustände gespeichert werden
 
 # Serielle Verbindung herstellen
 try:
@@ -24,18 +24,17 @@ try:
                 line = ser.read(4).strip().decode('latin-1')
 
                 # Überprüfen, ob die eingehenden Daten die erwartete Länge haben (4 Zeichen)
-                if len(line) == 4:  
+                if len(line) == 4:
                     if previousClockState != line[0]:
-                        print(previousClockState, int(line[0]), "\n")
-                        # Speichern der Pin-Zustände in der Datei
+                        # Speichern der Pin-Zustände in der Date
                         file.write(f"{line}")
-                        print(f"Gespeichert: {line}")  # Ausgabe für Debugging
+                        print(f"{line}")  # Ausgabe für Debugging
                         previousClockState = line[0]
 
 except KeyboardInterrupt:
     print("\nAbbruch durch Benutzer.")
 except Exception as e:
     print(f"Fehler: {e}")
-finally:
+finally:  
     ser.close()
     print("Serielle Verbindung geschlossen.")
