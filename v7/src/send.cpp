@@ -40,7 +40,7 @@ void outputDataOnClock(const std::string &binaryFile) {
         clockState = !clockState;
         drv.setRegister(&PORTA, binaryPackage);
         std::cout << std::bitset<4>(binaryPackage) << std::endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(5));
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
   }
 }
