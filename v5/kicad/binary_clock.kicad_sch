@@ -1825,7 +1825,7 @@
 		)
 	)
 	(junction
-		(at 96.52 93.98)
+		(at 97.79 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "16680d2b-651a-4bf9-b390-1bb09eb70c89")
@@ -1837,22 +1837,16 @@
 		(uuid "1971ed1a-5fbf-4cf8-ad13-6d8da3ac6bfc")
 	)
 	(junction
+		(at 96.52 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "49a45378-86f3-4527-a409-62d796d6b189")
+	)
+	(junction
 		(at 111.76 25.4)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4ede35d9-9815-4fbc-bcf7-50548ca5a1bc")
-	)
-	(junction
-		(at 96.52 81.28)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "594ad72d-53a4-4a71-9462-4a4229d0523c")
-	)
-	(junction
-		(at 96.52 60.96)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7be1dbb3-6610-4e08-b09b-e3c388b215ab")
 	)
 	(junction
 		(at 96.52 68.58)
@@ -1867,7 +1861,7 @@
 		(uuid "9fc4b502-482b-4389-9c27-943a8fd2de3e")
 	)
 	(junction
-		(at 96.52 96.52)
+		(at 97.79 96.52)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a16a9a62-53fe-4759-a701-2a9ee460df86")
@@ -1891,28 +1885,32 @@
 		(uuid "e7c1bd2c-f0de-4f58-aedc-69ff1c8d0e93")
 	)
 	(junction
-		(at 96.52 83.82)
+		(at 97.79 81.28)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f09d9ccd-d466-4f71-8e39-601453a797bd")
+	)
+	(junction
+		(at 97.79 83.82)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f48f4756-feac-47aa-a8ae-147c60ee4133")
-	)
-	(junction
-		(at 96.52 73.66)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f837318a-9ff4-4274-b39e-a581dbb77519")
 	)
 	(no_connect
 		(at 69.85 38.1)
 		(uuid "3919297f-ff85-4461-8f07-a04ecacfb4f0")
 	)
 	(no_connect
-		(at 69.85 43.18)
-		(uuid "ca0ec809-c4d9-46a5-9cb0-098ae5003b5e")
+		(at 57.15 30.48)
+		(uuid "57ddf5f3-8789-47cd-bb1c-1c69bbac4124")
+	)
+	(no_connect
+		(at 39.37 38.1)
+		(uuid "a5d88051-a61c-4055-b3da-55b3373714a8")
 	)
 	(wire
 		(pts
-			(xy 96.52 93.98) (xy 96.52 96.52)
+			(xy 97.79 93.98) (xy 97.79 96.52)
 		)
 		(stroke
 			(width 0)
@@ -1922,7 +1920,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 96.52) (xy 96.52 99.06)
+			(xy 97.79 96.52) (xy 97.79 99.06)
 		)
 		(stroke
 			(width 0)
@@ -1942,7 +1940,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 93.98) (xy 96.52 93.98)
+			(xy 77.47 93.98) (xy 97.79 93.98)
 		)
 		(stroke
 			(width 0)
@@ -1982,6 +1980,16 @@
 	)
 	(wire
 		(pts
+			(xy 97.79 83.82) (xy 97.79 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1bc08303-941b-4398-8689-98f87c06c029")
+	)
+	(wire
+		(pts
 			(xy 96.52 60.96) (xy 96.52 63.5)
 		)
 		(stroke
@@ -1989,6 +1997,16 @@
 			(type default)
 		)
 		(uuid "1c50accf-7448-4363-a8eb-63db272f2432")
+	)
+	(wire
+		(pts
+			(xy 96.52 40.64) (xy 69.85 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1cb8e724-8c5c-4f63-9975-52f09c953432")
 	)
 	(wire
 		(pts
@@ -2002,7 +2020,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 83.82) (xy 96.52 83.82)
+			(xy 81.28 83.82) (xy 97.79 83.82)
 		)
 		(stroke
 			(width 0)
@@ -2012,13 +2030,13 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 73.66) (xy 96.52 81.28)
+			(xy 97.79 43.18) (xy 97.79 81.28)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4c8f8284-d688-447e-93ac-0a9743f6f748")
+		(uuid "399fab3b-9dd4-454a-af54-d7201bb6b8f1")
 	)
 	(wire
 		(pts
@@ -2082,6 +2100,16 @@
 	)
 	(wire
 		(pts
+			(xy 96.52 40.64) (xy 96.52 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6dd82069-ebb6-4017-a0f8-06d1addd440d")
+	)
+	(wire
+		(pts
 			(xy 85.09 66.04) (xy 96.52 66.04)
 		)
 		(stroke
@@ -2109,6 +2137,16 @@
 			(type default)
 		)
 		(uuid "79088619-910b-4395-9884-8972193dfdb4")
+	)
+	(wire
+		(pts
+			(xy 69.85 43.18) (xy 97.79 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "79a5b9a7-5fc6-46c0-9988-670f56695da4")
 	)
 	(wire
 		(pts
@@ -2142,16 +2180,6 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 83.82) (xy 96.52 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "91036e4d-aea3-4bcd-a042-989d081cf55c")
-	)
-	(wire
-		(pts
 			(xy 96.52 63.5) (xy 96.52 66.04)
 		)
 		(stroke
@@ -2162,7 +2190,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 96.52) (xy 96.52 96.52)
+			(xy 81.28 96.52) (xy 97.79 96.52)
 		)
 		(stroke
 			(width 0)
@@ -2182,7 +2210,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 99.06) (xy 96.52 99.06)
+			(xy 85.09 99.06) (xy 97.79 99.06)
 		)
 		(stroke
 			(width 0)
@@ -2202,7 +2230,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 81.28) (xy 96.52 83.82)
+			(xy 97.79 81.28) (xy 97.79 83.82)
 		)
 		(stroke
 			(width 0)
@@ -2262,7 +2290,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 81.28) (xy 96.52 81.28)
+			(xy 77.47 81.28) (xy 97.79 81.28)
 		)
 		(stroke
 			(width 0)
@@ -2292,16 +2320,6 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 40.64) (xy 96.52 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f96c9146-f9a7-47c2-8379-4982add334fd")
-	)
-	(wire
-		(pts
 			(xy 92.71 71.12) (xy 96.52 71.12)
 		)
 		(stroke
@@ -2309,16 +2327,6 @@
 			(type default)
 		)
 		(uuid "fb4f20ef-aa78-408d-a4b8-dfd561752c57")
-	)
-	(wire
-		(pts
-			(xy 69.85 40.64) (xy 96.52 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fc36ab90-780f-4c39-a44b-2ca2df809721")
 	)
 	(global_label "RST"
 		(shape input)
@@ -2399,28 +2407,6 @@
 		(uuid "8f4d48ce-c9db-4c39-a8d3-b1e90b9fe44e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 130.81 39.59 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "+3.3V"
-		(shape input)
-		(at 57.15 30.48 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "9335525f-d2fa-499e-bf4b-96fe5bd7f54b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 57.15 21.81 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2606,28 +2592,6 @@
 			)
 		)
 	)
-	(global_label "+3.3V"
-		(shape input)
-		(at 39.37 38.1 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "e6eeb1f1-5557-4471-813a-212b633fe40d")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.7 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "MOSI"
 		(shape input)
 		(at 143.51 58.42 0)
@@ -2676,7 +2640,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1210_3225Metric_Pad1.42x2.65mm_HandSolder"
+		(property "Footprint" "LED_THT:LED_D3.0mm"
 			(at 73.66 60.96 0)
 			(effects
 				(font
@@ -2744,7 +2708,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1210_3225Metric_Pad1.42x2.65mm_HandSolder"
+		(property "Footprint" "LED_THT:LED_D3.0mm"
 			(at 77.47 96.52 0)
 			(effects
 				(font
@@ -2812,7 +2776,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Crystal:Crystal_AT310_D3.0mm_L10.0mm_Vertical"
+		(property "Footprint" "Crystal:Crystal_DS10_D1.0mm_L4.3mm_Vertical"
 			(at 82.55 55.88 0)
 			(effects
 				(font
@@ -2880,7 +2844,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1210_3225Metric_Pad1.42x2.65mm_HandSolder"
+		(property "Footprint" "LED_THT:LED_D3.0mm"
 			(at 73.66 93.98 0)
 			(effects
 				(font
@@ -3014,7 +2978,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_NO_CK_KSC6xxJ"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
 			(at 102.87 81.28 0)
 			(effects
 				(font
@@ -3064,7 +3028,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "2559509d-e814-4978-bb99-926b473ec1aa")
 		(property "Reference" "D7"
 			(at 75.2475 73.66 0)
@@ -3082,7 +3045,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1210_3225Metric_Pad1.42x2.65mm_HandSolder"
+		(property "Footprint" "LED_THT:LED_D3.0mm"
 			(at 73.66 81.28 0)
 			(effects
 				(font
@@ -3150,7 +3113,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1210_3225Metric_Pad1.42x2.65mm_HandSolder"
+		(property "Footprint" "LED_THT:LED_D3.0mm"
 			(at 77.47 63.5 0)
 			(effects
 				(font
@@ -3218,7 +3181,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_NO_CK_KSC6xxJ"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
 			(at 121.92 86.36 0)
 			(effects
 				(font
@@ -3286,7 +3249,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1210_3225Metric_Pad1.42x2.65mm_HandSolder"
+		(property "Footprint" "LED_THT:LED_D3.0mm"
 			(at 77.47 83.82 0)
 			(effects
 				(font
@@ -3354,7 +3317,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1210_3225Metric_Pad1.42x2.65mm_HandSolder"
+		(property "Footprint" "LED_THT:LED_D3.0mm"
 			(at 85.09 68.58 0)
 			(effects
 				(font
@@ -3617,7 +3580,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "8f1d867c-408f-409c-a214-faa2a5b70d0c")
 		(property "Reference" "D6"
 			(at 94.2975 66.04 0)
@@ -3635,7 +3597,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1210_3225Metric_Pad1.42x2.65mm_HandSolder"
+		(property "Footprint" "LED_THT:LED_D3.0mm"
 			(at 92.71 73.66 0)
 			(effects
 				(font
@@ -3772,7 +3734,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Battery:BatteryHolder_Keystone_104_1x23mm"
+		(property "Footprint" "Battery:BatteryHolder_Keystone_103_1x20mm"
 			(at 111.76 28.956 90)
 			(effects
 				(font
@@ -3840,7 +3802,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1210_3225Metric_Pad1.42x2.65mm_HandSolder"
+		(property "Footprint" "LED_THT:LED_D3.0mm"
 			(at 88.9 71.12 0)
 			(effects
 				(font
@@ -3908,7 +3870,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1210_3225Metric_Pad1.42x2.65mm_HandSolder"
+		(property "Footprint" "LED_THT:LED_D3.0mm"
 			(at 81.28 66.04 0)
 			(effects
 				(font
@@ -4045,7 +4007,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.00mm:PinHeader_2x03_P2.00mm_Vertical"
+		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_2x03_P2.54mm_Vertical"
 			(at 127 59.69 90)
 			(effects
 				(font
@@ -4125,7 +4087,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1210_3225Metric_Pad1.42x2.65mm_HandSolder"
+		(property "Footprint" "LED_THT:LED_D3.0mm"
 			(at 81.28 99.06 0)
 			(effects
 				(font
@@ -4193,7 +4155,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_NO_CK_KSC6xxJ"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
 			(at 111.76 83.82 0)
 			(effects
 				(font
