@@ -1,0 +1,38 @@
+Name     dice ;
+PartNo   00 ;
+Date     12/23/2024 ;
+Revision 01 ;
+Designer lschneid ;
+Company  htwk ;
+Assembly None ;
+Location  ;
+Device   CAL16V8 ;
+
+/* *************** INPUT PINS *********************/
+PIN 1 = clock;
+PIN 2 = mode;
+
+/* *************** OUTPUT PINS *********************/
+PIN [16,17,18,19] = [Q3..0];
+
+FIELD state_n = [Q3..0];
+$define S1 	'b'0001 
+$define S2	'b'0100 
+$define S3	'b'0101 
+$define S4	'b'0110 
+$define S5	'b'0111 
+$define S6	'b'1110 
+
+Sequenced state_n {
+present S1	next S2;
+present S2	next S3;
+present S3	next S4;
+present S4	next S5;
+present S5	next S6;
+present S6	if !mode next S1;
+		if mode next S6;
+}
+
+
+
+
