@@ -11,17 +11,14 @@ Device   G16V8 ;
 PIN 1 = clock ;
 PIN 2 = mode ;
 
+PIN 15 = E ;
 PIN 16 = A ;
 PIN 17 = B ;
 PIN 18 = C ;
 PIN 19 = D ;
 
-A.d = (!mode & (D # C)) # (mode & ((D & !C) # (C & !D))) ; 
-B.d = (!mode & (!A # (B & C))) # (mode & (!A # (B & !D))) ;
-C.d = (!mode & (!A # (B & D))) # (mode & (!A # (B & !C))) ;
-D.d = (!mode & (!D)) # (mode & (!D # C));
-
-
-
-
-
+A.d = (!mode & (D #B)) # (mode & (B # E # (A & D))) ; 
+B.d = (!mode & (!A # (!B & C))) # (mode & (E # (!B & C))) ;
+C.d = (!mode & (!A # (C & !D))) # (mode & (E # (C & !D))) ;
+D.d = (!mode & !D) # (mode & (!D # (!E & !A)));
+E.d = (!mode) # (mode & (!E & !A));
